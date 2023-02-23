@@ -4,7 +4,7 @@ const initialState = {
   country: null,
   city: null,
   coordinateFetch: [],
-  wheather: null,
+  weather: null,
 };
 
 const mainReducer = (state = initialState, action) => {
@@ -17,10 +17,10 @@ const mainReducer = (state = initialState, action) => {
         country: [action.payload.country],
         city: [action.payload.name],
       };
-      case "WHEATHER_CARD":
+      case "WEATHER_CARD":
         return {
           ...state,
-          wheather: [action.payload]
+          weather: [action.payload]
         };
     default:
       return state;

@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { Container, Row, Col, Form } from "react-bootstrap";
+import { useEffect } from "react";
+import { Container, Row, Col } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import CardWheather from "./CardWheather";
+import CardWeather from "./CardWeather";
 
-const WheatherForecast = () => {
+const WeatherForecast = () => {
 
   const dispatch = useDispatch();
 
@@ -14,16 +14,16 @@ const WheatherForecast = () => {
   const cityFetch = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${keyAuthenticator}`;
 
   useEffect(() => {
-    getWheather()
+    getWeather()
   }, [])
 
-  const getWheather = async () => {
+  const getWeather = async () => {
     try {
       const response = await fetch(cityFetch)
       if (response.ok) {
         const { data } = await response.json()
         dispatch({
-          type: "WHEATHER_CARD",
+          type: "WEATHER_CARD",
           payload: data,
         });
       } else {
@@ -38,13 +38,13 @@ const WheatherForecast = () => {
     <Container>
       <Row>
         <Col>
-          <CardWheather/>
+          <CardWeather/>
         </Col>
       </Row>
     </Container>
   );
 };
-export default WheatherForecast;
+export default WeatherForecast;
 
 
 

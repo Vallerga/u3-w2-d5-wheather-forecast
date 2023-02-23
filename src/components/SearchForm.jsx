@@ -51,7 +51,7 @@ const SearchForm = () => {
       {CityAlternative && (
         <Row xs={10} className="mx-auto mb-5">
           {CityAlternative.map((city, i) => (
-            <Link className="nav-link" to="/WheatherForecast">
+            <Link className="nav-link" to="/WeatherForecast">
               <Col key={`city-${i}`} data={city}>
                 {city.local_names.it}
               </Col>
